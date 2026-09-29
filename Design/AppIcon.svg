@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- App Canvas Drop Shadow -->
+    <filter id="app-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#0a0f1d" flood-opacity="0.35"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0a0f1d" flood-opacity="0.2"/>
+    </filter>
+
+    <!-- Inner Plate Glow & Drop Shadows -->
+    <filter id="layer-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+
+    <filter id="glass-lens-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#020817" flood-opacity="0.4"/>
+    </filter>
+
+    <!-- Gradients -->
+    <!-- Base App Icon Background -->
+    <linearGradient id="bg-grad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#1e2638"/>
+      <stop offset="100%" stop-color="#0d111a"/>
+    </linearGradient>
+
+    <!-- Outer Border Highlight -->
+    <linearGradient id="border-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <!-- Database Disc Gradients -->
+    <linearGradient id="db-top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38ef7d"/>
+      <stop offset="100%" stop-color="#11998e"/>
+    </linearGradient>
+    
+    <linearGradient id="db-side" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#11998e"/>
+      <stop offset="100%" stop-color="#08524b"/>
+    </linearGradient>
+
+    <linearGradient id="db-top-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c6ff"/>
+      <stop offset="100%" stop-color="#0072ff"/>
+    </linearGradient>
+
+    <linearGradient id="db-side-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0072ff"/>
+      <stop offset="100%" stop-color="#003e92"/>
+    </linearGradient>
+
+    <linearGradient id="db-top-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+
+    <linearGradient id="db-side-3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#3730a3"/>
+    </linearGradient>
+
+    <!-- Glass Magnifier Rim -->
+    <linearGradient id="lens-rim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Glass Fill -->
+    <linearGradient id="lens-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.25"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Handle Gradient -->
+    <linearGradient id="handle-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Grid Pattern for Dark Canvas -->
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Base App Squircle (macOS Shape) -->
+  <g filter="url(#app-shadow)">
+    <!-- Main Background -->
+    <rect x="32" y="32" width="448" height="448" rx="100" fill="url(#bg-grad)"/>
+    
+    <!-- Background Grid Line Overlay -->
+    <rect x="32" y="32" width="448" height="448" rx="100" fill="url(#grid)"/>
+
+    <!-- Subtle Inner Border Highlight -->
+    <rect x="33" y="33" width="446" height="446" rx="99" fill="none" stroke="url(#border-grad)" stroke-width="2"/>
+  </g>
+
+  <!-- Database Stack Group (Layered Objects) -->
+  <g filter="url(#layer-shadow)">
+    
+    <!-- Bottom Disc (Purple - System/Schema Layer) -->
+    <g transform="translate(0, 50)">
+      <!-- Cylinder Side -->
+      <path d="M 140 270 L 140 300 C 140 325 316 325 316 300 L 316 270 Z" fill="url(#db-side-3)"/>
+      <!-- Top Ellipse -->
+      <ellipse cx="228" cy="270" rx="88" ry="25" fill="url(#db-top-3)"/>
+      <!-- Inner Ellipse Rim/Glow -->
+      <ellipse cx="228" cy="270" rx="80" ry="21" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+    </g>
+
+    <!-- Middle Disc (Blue - Tables/Data Layer) -->
+    <g transform="translate(0, 0)">
+      <!-- Cylinder Side -->
+      <path d="M 140 230 L 140 260 C 140 285 316 285 316 260 L 316 230 Z" fill="url(#db-side-2)"/>
+      <!-- Top Ellipse -->
+      <ellipse cx="228" cy="230" rx="88" ry="25" fill="url(#db-top-2)"/>
+      <!-- Inner Ellipse Rim/Glow -->
+      <ellipse cx="228" cy="230" rx="80" ry="21" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5"/>
+    </g>
+
+    <!-- Top Disc (Teal/Green - Active Query/Object Layer) -->
+    <g transform="translate(0, -50)">
+      <!-- Cylinder Side -->
+      <path d="M 140 190 L 140 220 C 140 245 316 245 316 220 L 316 190 Z" fill="url(#db-side)"/>
+      <!-- Top Ellipse -->
+      <ellipse cx="228" cy="190" rx="88" ry="25" fill="url(#db-top)"/>
+      <!-- Inner Ellipse Rim/Glow -->
+      <ellipse cx="228" cy="190" rx="80" ry="21" fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="1.5"/>
+    </g>
+    
+  </g>
+
+  <!-- Magnifying Glass / Browser Inspector (Foreground Object) -->
+  <g filter="url(#glass-lens-shadow)">
+    <!-- Handle -->
+    <path d="M 325 325 L 405 405" stroke="url(#handle-grad)" stroke-width="28" stroke-linecap="round"/>
+    <path d="M 325 325 L 405 405" stroke="#000000" stroke-opacity="0.3" stroke-width="28" stroke-linecap="round" fill="none" filter="blur(2px)"/>
+    <!-- Handle Metallic Cap -->
+    <circle cx="330" cy="330" r="12" fill="#94a3b8"/>
+
+    <!-- Lens Outer Rim -->
+    <circle cx="260" cy="260" r="82" fill="none" stroke="url(#lens-rim)" stroke-width="10"/>
+
+    <!-- Lens Glass Fill -->
+    <circle cx="260" cy="260" r="77" fill="url(#lens-glass)"/>
+
+    <!-- Glass Curved Reflection/Glint -->
+    <path d="M 200 230 A 65 65 0 0 1 300 195" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 210 250 A 65 65 0 0 1 235 210" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Reticle / Target Accent (Database Inspector symbol inside lens) -->
+    <circle cx="260" cy="260" r="32" fill="none" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2" stroke-dasharray="6 4"/>
+    <path d="M 260 220 L 260 228 M 260 292 L 260 300 M 220 260 L 228 260 M 292 260 L 300 260" stroke="#38bdf8" stroke-opacity="0.8" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="260" cy="260" r="4" fill="#38bdf8"/>
+  </g>
+
+  <!-- Floating Data Object Nodes (Representing schema objects under inspection) -->
+  <g filter="url(#layer-shadow)">
+    <!-- Node 1: Table -->
+    <rect x="100" y="120" width="36" height="28" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <path d="M 106 128 L 130 128 M 106 134 L 122 134 M 106 140 L 126 140" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Node 2: Key / Index -->
+    <circle cx="380" cy="150" r="16" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <path d="M 374 150 L 386 150 M 382 146 L 382 154" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Node 3: View / Query -->
+    <circle cx="110" cy="360" r="18" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+    <polygon points="106,352 118,360 106,368" fill="#ec4899"/>
+  </g>
+</svg>
